@@ -83,8 +83,6 @@ stages:
         command: pack
         arguments: KeyVault-Rotation-Csharp.sln --configuration $(buildConfiguration) --no-build --no-restore --verbosity normal
 
-    - task: PublishPipelineArtifact@1
+    - task: PublishPipelineArtifact@2
       inputs:
-        ArtifactName: 'keyvault-rotator-$(imagename)'
-        targetPath: ./src/bin/$(buildConfiguration)/netcoreapp3.1/publish/
-        artifactType: pipeline
+        summaryFileLocation: ./src/bin/$(buildConfiguration)/netcoreapp3.1/publish/
